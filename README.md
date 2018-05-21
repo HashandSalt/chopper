@@ -22,6 +22,12 @@ To trim to 50 words and append ellipsis on the end:
 <?= $page->text()->chopper(500, 'words', '…') ?>
 ```
 
+Defaults to words and an ellipsis, so if you just want 20 words and an ellipsis on the end, its shorter to write:
+
+```
+<?= $page->text()->chopper(20) ?>
+```
+
 To change the default list of kept tags, add this line to your `config.php` and amend accordingly:
 
 ```
