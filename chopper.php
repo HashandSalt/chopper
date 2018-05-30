@@ -34,7 +34,7 @@ field::$methods['chopper'] = function($field, $length = 250, $type = 'words', $e
 			break;
 	}
 
-	$keep = c::get('chopper.keep', '<p><a><strong><em><sub><sup><blockquote><figure><img>');
+	$keep = c::get('chopper.keep', '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>');
 
 	$result = strip_tags($result, $keep);
 

@@ -45,7 +45,8 @@ class TruncateHTML {
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML($html);
+        // $dom->loadHTML($html);
+        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
 
         $body = $dom->getElementsByTagName("body")->item(0);
 
@@ -71,7 +72,8 @@ class TruncateHTML {
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML($html);
+        // $dom->loadHTML($html);
+        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
 
         $body = $dom->getElementsByTagName("body")->item(0);
 

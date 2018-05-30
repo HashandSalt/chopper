@@ -31,7 +31,7 @@ Defaults to words and an ellipsis, so if you just want 20 words and an ellipsis 
 To change the default list of kept tags, add this line to your `config.php` and amend accordingly:
 
 ```
-c::set('chopper.keep', '<p><a><strong><em><sub><sup><blockquote><figure><img>');
+c::set('chopper.keep', '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>');
 ```
 
 ## Requirements
