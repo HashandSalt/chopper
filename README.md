@@ -1,8 +1,6 @@
 # Kirby Chopper Plugin
 
-This plugin creates excerpts and keeps HTML tags. This means all tags, including images. Works on characters and words.
-
-**This is very much a beta plugin. It works (as far as I can tell!), but use at your own risk. If you find issues, let me know or make a PR if you know how to fix it :)**
+Unlike Kirby's built in [Excerpt](https://getkirby.com/docs/cheatsheet/field-methods/excerpt) which only returns plain text, this plugin creates excerpts from fields via kirbytext but keeps HTML tags. This means all tags, including images. You can set a character or word limit.
 
 ## Installation
 
@@ -10,22 +8,22 @@ To use this plugin, place all the files in `site/plugins/chopper`.
 
 ## Usage
 
-To trim to 200 characters and append ellipsis on the end:
-
-```
-<?= $page->text()->chopper(200, 'chars', '…') ?>
-```
-
-To trim to 50 words and append ellipsis on the end:
-
-```
-<?= $page->text()->chopper(500, 'words', '…') ?>
-```
-
-Defaults to words and an ellipsis, so if you just want 20 words and an ellipsis on the end, its shorter to write:
+Defaults to words and an ellipsis, so if you just want 20 words and an ellipsis on the end:
 
 ```
 <?= $page->text()->chopper(20) ?>
+```
+
+To trim to 200 characters and append ellipsis on the end:
+
+```
+<?= $page->text()->chopper(200, 'chars') ?>
+```
+
+To trim to 50 words and append an arrow on the on the end:
+
+```
+<?= $page->text()->chopper(500, 'words', '→') ?>
 ```
 
 To change the default list of kept tags, add this line to your `config.php` and amend accordingly:
