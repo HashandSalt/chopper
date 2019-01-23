@@ -1,8 +1,8 @@
 # Kirby Chopper Plugin for Kirby 3
 
-Kirby's built in [Excerpt](https://getkirby.com/docs/reference/templates/field-methods/excerpt) which takes an all or nothing approach to stripping html tags, this plugin creates excerpts from fields via KirbyText but keeps any HTML tags, with the ability to define the tags you wish to keep. Also works on whole words, as well as charachters.
+Kirby's built in [Excerpt](https://getkirby.com/docs/reference/templates/field-methods/excerpt) takes an all or nothing approach to stripping html tags, and only works on characters. This plugin creates excerpts from fields via KirbyText but keeps any HTML tags, with the ability to define the tags you wish to keep. Also works on whole words, as well as characters.
 
-Manual install is required for not, Composer support coming soon!
+Manual install is required for now, Composer support coming soon!
 
 ## Installation
 
