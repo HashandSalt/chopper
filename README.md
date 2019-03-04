@@ -14,6 +14,7 @@ To use this plugin, place all the files in `site/plugins/chopper/`.
 
 ```
 composer require hashandsalt/kirby-chopper
+```
 
 ## Usage
 
