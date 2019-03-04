@@ -3,7 +3,7 @@
  *
  * Chopper Plugin for Kirby 3
  *
- * @version   2.0.1
+ * @version   2.0.2
  * @author    James Steel <https://hashandsalt.com>
  * @copyright James Steel <https://hashandsalt.com>
  * @link      https://github.com/HashandSalt/chopper
