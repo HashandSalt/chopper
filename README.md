@@ -6,7 +6,14 @@ Manual install is required for now, Composer support coming soon!
 
 ## Installation
 
+### Manual
+
 To use this plugin, place all the files in `site/plugins/chopper/`.
+
+### Composer
+
+```
+composer require hashandsalt/kirby-chopper
 
 ## Usage
 
