@@ -2,6 +2,12 @@
 
 Unlike Kirby's built in [Excerpt](https://getkirby.com/docs/cheatsheet/field-methods/excerpt) which only returns plain text, this plugin creates excerpts from fields via kirbytext but keeps HTML tags. This means all tags, including images. You can set a character or word limit.
 
+## Commerical Usage
+
+This plugin is free but if you use it in a commercial project please consider to
+- [make a donation 🍻](https://paypal.me/hashandsalt?locale.x=en_GB) or
+- [buy a Kirby license using this affiliate link](https://a.paddle.com/v2/click/1129/36141?link=1170)
+
 ## Installation
 
 To use this plugin, place all the files in `site/plugins/chopper`.
