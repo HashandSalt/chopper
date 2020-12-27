@@ -27,6 +27,7 @@ Kirby::plugin('hashandsalt/chopper', [
 	'fieldMethods' => [
 		'chopper' => function ($field, $length = 250, $type = 'words', $suffix = '') {
 
+
 		$chopper = $field->kt();
 		$suffix = !empty($suffix) ? $suffix : option('hashandsalt.chopper.suffix');
 
@@ -36,11 +37,22 @@ Kirby::plugin('hashandsalt/chopper', [
 			$field = TruncateHTML::truncateChars($chopper, $length, $suffix);
 		}
 
-		$chopped = strip_tags($field, option('hashandsalt.chopper.keep'));
 
-		return $chopped;
+ ]
 
-		}
-	]
 
 ]);
+
+class Chopper {
+    public static function excerpt($text, $length = 250, $type = 'words', $elipses = '…') {
+        $chopped = strip_tags($text, option('hashandsalt.chopper.keep'));
+
+        if($type == 'words') {
+            $field = TruncateHTML::truncateWords($chopped, $length, $elipses);
+        } else {
+            $field = TruncateHTML::truncateChars($chopped, $length, $elipses);
+        }
+
+        return $chopped;
+    }
+}
