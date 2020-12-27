@@ -20,17 +20,26 @@ require('lib/TruncateHTML.php');
 Kirby::plugin('hashandsalt/chopper', [
 	// Options
 	'options' => [
-		'keep' => '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>'
+		'keep' => '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>',
+		'suffix' => '…'
   ],
 
 	'fieldMethods' => [
-		'chopper' => function ($field, $length = 250, $type = 'words', $elipses = '…') {
+		'chopper' => function ($field, $length = 250, $type = 'words', $suffix = '') {
 
-            $html = $field->kt();
-            return Chopper::excerpt($html, $length, $type, $elipses);
 
-        }
-    ]
+		$chopper = $field->kt();
+		$suffix = !empty($suffix) ? $suffix : option('hashandsalt.chopper.suffix');
+
+		if($type == 'words') {
+			$field = TruncateHTML::truncateWords($chopper, $length, $suffix);
+		} else {
+			$field = TruncateHTML::truncateChars($chopper, $length, $suffix);
+		}
+
+
+ ]
+
 
 ]);
 

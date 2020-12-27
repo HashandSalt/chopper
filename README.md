@@ -48,6 +48,12 @@ To change the default list of kept tags, add this line to your `config.php` and 
 'hashandsalt.chopper.keep' => '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>',
 ```
 
+To append every time an arrow at the end, add this line to your `config.php`:
+
+```
+'hashandsalt.chopper.suffix' => '→',
+```
+
 ## Requirements
 
 This plugin was built using Kirby 3.0. Will not work on earlier versions.
