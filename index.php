@@ -3,7 +3,7 @@
  *
  * Chopper Plugin for Kirby 3
  *
- * @version   2.0.2
+ * @version   2.0.3
  * @author    James Steel <https://hashandsalt.com>
  * @copyright James Steel <https://hashandsalt.com>
  * @link      https://github.com/HashandSalt/chopper
@@ -37,6 +37,8 @@ Kirby::plugin('hashandsalt/chopper', [
 			$field = TruncateHTML::truncateChars($chopper, $length, $suffix);
 		}
 
+	}
+
 
  ]
 
@@ -45,7 +47,9 @@ Kirby::plugin('hashandsalt/chopper', [
 
 class Chopper {
     public static function excerpt($text, $length = 250, $type = 'words', $elipses = '…') {
-        $chopped = strip_tags($text, option('hashandsalt.chopper.keep'));
+		$chopped = strip_tags($text, option('hashandsalt.chopper.keep'));
+		
+		
 
         if($type == 'words') {
             $field = TruncateHTML::truncateWords($chopped, $length, $elipses);
