@@ -3,7 +3,7 @@
  *
  * Chopper Plugin for Kirby 3
  *
- * @version   2.0.1
+ * @version   2.0.2
  * @author    James Steel <https://hashandsalt.com>
  * @copyright James Steel <https://hashandsalt.com>
  * @link      https://github.com/HashandSalt/chopper
@@ -20,25 +20,39 @@ require('lib/TruncateHTML.php');
 Kirby::plugin('hashandsalt/chopper', [
 	// Options
 	'options' => [
-		'keep' => '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>'
+		'keep' => '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>',
+		'suffix' => '…'
   ],
 
 	'fieldMethods' => [
-		'chopper' => function ($field, $length = 250, $type = 'words', $elipses = '…') {
+		'chopper' => function ($field, $length = 250, $type = 'words', $suffix = '') {
+
 
 		$chopper = $field->kt();
+		$suffix = !empty($suffix) ? $suffix : option('hashandsalt.chopper.suffix');
 
 		if($type == 'words') {
-			$field = TruncateHTML::truncateWords($chopper, $length, $elipses);
+			$field = TruncateHTML::truncateWords($chopper, $length, $suffix);
 		} else {
-			$field = TruncateHTML::truncateChars($chopper, $length, $elipses);
+			$field = TruncateHTML::truncateChars($chopper, $length, $suffix);
 		}
 
-		$chopped = strip_tags($field, option('hashandsalt.chopper.keep'));
 
-		return $chopped;
+ ]
 
-		}
-	]
 
 ]);
+
+class Chopper {
+    public static function excerpt($text, $length = 250, $type = 'words', $elipses = '…') {
+        $chopped = strip_tags($text, option('hashandsalt.chopper.keep'));
+
+        if($type == 'words') {
+            $field = TruncateHTML::truncateWords($chopped, $length, $elipses);
+        } else {
+            $field = TruncateHTML::truncateChars($chopped, $length, $elipses);
+        }
+
+        return $chopped;
+    }
+}
