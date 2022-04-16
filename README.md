@@ -39,7 +39,7 @@ To set number of charachters to trim to
 To trim to 50 charachters, maintaining whole words, append an arrow on the on the end:
 
 ```
-<?= $page->yourtextfield()->chopper(50, 'words', '→') ?>
+<?= $page->yourtextfield()->chopper(50, ['ellipsis', '→']) ?>
 ```
 
 To change the default list of kept tags, add this line to your `config.php` and amend accordingly:
