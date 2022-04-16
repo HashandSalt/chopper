@@ -24,19 +24,19 @@ composer require hashandsalt/kirby-chopper
 
 ## Usage
 
-Defaults to limiting to Words and appending an ellipsis, so if you just want 20 words and an ellipsis on the end:
+Defaults to limiting to 250 charchters, maintaining whole words, so if you just want 20 words and an ellipsis on the end:
 
 ```
-<?= $page->yourtextfield()->chopper(20) ?>
+<?= $page->yourtextfield()->chopper() ?>
 ```
 
-To trim to 200 characters and append ellipsis on the end:
+To set number of charachters to trim to
 
 ```
-<?= $page->yourtextfield()->chopper(200, 'chars') ?>
+<?= $page->yourtextfield()->chopper(100) ?>
 ```
 
-To trim to 50 words and append an arrow on the on the end:
+To trim to 50 charachters, maintaining whole words, append an arrow on the on the end:
 
 ```
 <?= $page->yourtextfield()->chopper(50, 'words', '→') ?>
@@ -51,13 +51,26 @@ To change the default list of kept tags, add this line to your `config.php` and 
 To append every time an arrow at the end, add this line to your `config.php`:
 
 ```
-'hashandsalt.chopper.suffix' => '→',
+'hashandsalt.chopper.ellipsis' => '→',
 ```
+
+## Options
+
+Full list of options
+
+```
+'hashandsalt.chopper.ellipsis' => '…',
+'hashandsalt.chopper.exact' => true,
+'hashandsalt.chopper.html' => true,
+'hashandsalt.chopper.trimWidth' => false,
+'hashandsalt.chopper.keep' => '<p><a><strong><em><sub><sup><blockquote><figure><img><h1><h2><h3><h4><h5><h6>',
+```
+
 
 ## Requirements
 
-This plugin was built using Kirby 3.0. Will not work on earlier versions.
+This plugin was built using Kirby 3.6. Will not work on earlier versions. Requires PHP 7.4+
 
 
 ## Credits
-Based on the work of Partrick Galbraith (https://www.pjgalbraith.com/truncating-text-html-with-php/)
+Based on text functions in CakePHP https://cakephp.org/
